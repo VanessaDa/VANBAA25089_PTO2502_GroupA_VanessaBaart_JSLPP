@@ -47,3 +47,25 @@ export function setupModal() {
     modal.removeAttribute('data-editing-id');
     modal.close();
   });
+  // Drag to move
+  const header = document.querySelector(".modal-header");
+  let isDown = false, offsetX = 0, offsetY = 0;
+
+  header.addEventListener("mousedown", (e) => {
+    isDown = true;
+    offsetX = e.clientX - modal.offsetLeft;
+    offsetY = e.clientY - modal.offsetTop;
+    modal.style.position = "absolute";
+  });
+
+  window.addEventListener("mousemove", (e) => {
+    if (isDown) {
+      modal.style.left = (e.clientX - offsetX) + "px";
+      modal.style.top = (e.clientY - offsetY) + "px";
+    }
+  });
+
+  window.addEventListener("mouseup", () => {
+    isDown = false;
+  });
+}
