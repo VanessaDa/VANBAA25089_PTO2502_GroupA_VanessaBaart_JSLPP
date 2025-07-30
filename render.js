@@ -29,3 +29,8 @@ export function renderTasks(tasks) {
   document.getElementById('doingText').textContent = `DOING (${statusCounts.doing})`;
   document.getElementById('doneText').textContent = `DONE (${statusCounts.done})`;
 }
+  // Clear all task containers
+  columns.forEach(column => {
+    const container = column.querySelector('.tasks-container');
+    container.innerHTML = '';
+  });
