@@ -13,3 +13,72 @@
   --primary-box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.1015);
   --sidebar-width: 300px;
 }
+/* ================
+   Base Elements
+================ */
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--secondary-color);
+  font-size: 1rem;
+}
+
+/* ================
+   Sidebar Layout
+================ */
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  border-right: 1px solid #e4ebfa;
+  width: var(--sidebar-width);
+  height: 100vh;
+}
+
+#side-logo-div {
+  margin: 33px 113px 54px 34px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#logo {
+  width: 100%;
+}
+
+.boards-nav-links-div {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary-font-color);
+}
+
+#headline-sidepanel {
+  padding: 0 12px 0 50px;
+}
+
+h4 {
+  color: var(--secondary-font-color);
+  font-size: 0.75rem;
+  letter-spacing: 0.125rem;
+}
+
+.board-btn {
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #635fc7;
+  color: #fff;
+  border: none;
+  border-radius: 0 100px 100px 0;
+  height: 48px;
+  width: 276px;
+  padding: 28px 12px 28px 50px;
+  font-size: 0.9375rem;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+}
