@@ -8,6 +8,9 @@ export function setupModal() {
   closeBtn.addEventListener('click', () => {
     modal.close();
   });
+
+
+
   const form = document.getElementById('task-form');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -47,6 +50,7 @@ export function setupModal() {
     modal.removeAttribute('data-editing-id');
     modal.close();
   });
+
   // Drag to move
   const header = document.querySelector(".modal-header");
   let isDown = false, offsetX = 0, offsetY = 0;
@@ -69,6 +73,7 @@ export function setupModal() {
     isDown = false;
   });
 }
+
 export function openEmptyModal() {
   const modal = document.getElementById('task-modal');
   document.getElementById('task-title').value = '';
@@ -78,6 +83,7 @@ export function openEmptyModal() {
   document.getElementById('submit-task-btn').textContent = 'Create Task';
   modal.showModal();
 }
+
 export function openModalForEdit(task) {
   const modal = document.getElementById('task-modal');
   const form = document.getElementById('task-form');
@@ -90,6 +96,3 @@ export function openModalForEdit(task) {
   document.getElementById('submit-task-btn').textContent = 'Update Task';
   modal.showModal();
 }
-    form.reset();
-    modal.removeAttribute('data-editing-id');
-    modal.close();
