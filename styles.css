@@ -203,3 +203,39 @@ header {
 #done-dot {
   background-color: #219c90;
 }
+/* ===============
+   Task Cards
+================ */
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 15px;
+  min-height: 90px;
+  border-radius: 12px;
+  background-color: var(--primary-color);
+  box-shadow: var(--primary-box-shadow);
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.task-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary-font-color);
+}
+
+.task-desc {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--secondary-font-color);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
