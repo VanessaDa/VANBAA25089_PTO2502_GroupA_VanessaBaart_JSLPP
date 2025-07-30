@@ -69,3 +69,12 @@ export function setupModal() {
     isDown = false;
   });
 }
+export function openEmptyModal() {
+  const modal = document.getElementById('task-modal');
+  document.getElementById('task-title').value = '';
+  document.getElementById('task-desc').value = '';
+  document.getElementById('task-status').value = 'todo';
+  modal.removeAttribute('data-editing-id');
+  document.getElementById('submit-task-btn').textContent = 'Create Task';
+  modal.showModal();
+}
