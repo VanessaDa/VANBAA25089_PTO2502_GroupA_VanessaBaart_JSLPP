@@ -78,3 +78,18 @@ export function openEmptyModal() {
   document.getElementById('submit-task-btn').textContent = 'Create Task';
   modal.showModal();
 }
+export function openModalForEdit(task) {
+  const modal = document.getElementById('task-modal');
+  const form = document.getElementById('task-form');
+
+  form['task-title'].value = task.title;
+  form['task-desc'].value = task.description;
+  form['task-status'].value = task.status;
+
+  modal.dataset.editingId = task.id;
+  document.getElementById('submit-task-btn').textContent = 'Update Task';
+  modal.showModal();
+}
+    form.reset();
+    modal.removeAttribute('data-editing-id');
+    modal.close();
