@@ -150,3 +150,56 @@ header {
   font-size: 0.9375rem;
   font-weight: 600;
 }
+/* ===============
+   Board Columns
+================ */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 35px;
+  box-sizing: border-box;
+}
+
+.card-column-main {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 304px));
+  gap: 8px;
+}
+
+.column-div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 12px;
+}
+
+.column-head-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.columnHeader {
+  font-size: 0.75rem;
+  letter-spacing: 0.125rem;
+  color: var(--secondary-font-color);
+  margin: 0;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#todo-dot {
+  background-color: #49c4e5;
+}
+#doing-dot {
+  background-color: #8471f2;
+}
+#done-dot {
+  background-color: #219c90;
+}
