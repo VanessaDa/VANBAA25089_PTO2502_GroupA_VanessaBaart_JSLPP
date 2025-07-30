@@ -13,6 +13,7 @@
   --primary-box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.1015);
   --sidebar-width: 300px;
 }
+
 /* ================
    Base Elements
 ================ */
@@ -82,6 +83,7 @@ h4 {
   cursor: pointer;
   overflow: hidden;
 }
+
 /* ===============
    Main Layout
 ================ */
@@ -117,6 +119,7 @@ header {
   display: none;
 }
 
+/* Add Task Button - Default */
 .header-btn-wrapper {
   display: flex;
   align-items: center;
@@ -140,6 +143,7 @@ header {
   background-color: #a8a4ff;
 }
 
+/* Icon and Label for Add Task */
 .plus-icon {
   font-size: 1.5rem;
   margin-right: 8px;
@@ -150,6 +154,7 @@ header {
   font-size: 0.9375rem;
   font-weight: 600;
 }
+
 /* ===============
    Board Columns
 ================ */
@@ -203,6 +208,7 @@ header {
 #done-dot {
   background-color: #219c90;
 }
+
 /* ===============
    Task Cards
 ================ */
@@ -239,6 +245,7 @@ header {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
 /* ===============
    Modal Styles
 ================ */
@@ -347,6 +354,7 @@ form select {
 .submit-task-btn:hover {
   color: #a8a4ff;
 }
+
 /******** Tablets ********/
 @media screen and (max-width: 1023px) {
   .side-bar {
@@ -425,7 +433,8 @@ form select {
 }
 
 /******** Mobile ********/
-@media screen and (max-width: 576px) {
+
+  @media screen and (max-width: 576px) {
   body {
     margin: 0 auto;
     max-width: 375px;
@@ -450,18 +459,19 @@ form select {
   }
 
   #add-task-btn {
-    height: 40px;
-    width: 40px;
-    padding: 0;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    background-color: #635fc7;
-    color: white;
-    display: flex;
-    margin-left: auto;
-    margin-right: 0;
+    
+   height: 40px;
+  width: 40px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #635fc7;
+  color: white;
+  display: flex;
+  margin-left: auto;
+  margin-right: 0;
   }
 
   #add-task-btn:hover {
@@ -476,8 +486,7 @@ form select {
   #add-task-btn .add-task-text {
     display: none;
   }
-
-  .task-div {
+   .task-div {
     width: 320px;
     height: 60px;
     padding: 12px 16px;
@@ -493,12 +502,12 @@ form select {
   }
 
   #header-board-name {
-    display: none;
-  }
+  display: none;
+  
+}
 
-  #layout {
-    position: relative;
-  }
+#layout{
+  position: relative;
 }
 
 @media screen and (max-width: 375px) {
@@ -506,3 +515,5 @@ form select {
     padding: 16px;
   }
 }
+
+  }
