@@ -23,19 +23,5 @@ export function saveTasks(tasks) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 }
 
-export function updateTask(updatedTask) {
-  const tasks = loadTasks().map(task =>
-    task.id === updatedTask.id ? updatedTask : task
-  );
-  saveTasks(tasks);
-}
 
-export function deleteTask(taskId) {
-  const tasks = loadTasks().filter(task => task.id !== taskId);
-  saveTasks(tasks);
-}
-export function saveTask(newTask) {
-  const tasks = loadTasks();
-  tasks.push(newTask);
-  saveTasks(tasks);
-}
+
