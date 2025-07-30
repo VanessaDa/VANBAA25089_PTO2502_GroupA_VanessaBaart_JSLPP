@@ -1,4 +1,4 @@
-# 🧩 Kanban Task Board – JSL05_TASKBOARD_FIGMA
+# 🧩 Kanban Task Board – JSL05
 
 A fully responsive **Kanban task management app** built with vanilla HTML, CSS, and JavaScript – perfectly aligned to a Figma design. Tasks are persisted in localStorage and organized by status ("To Do", "Doing", "Done") with a clean modular structure.
 
@@ -46,8 +46,9 @@ JSL05_TASKBOARD_FIGMA/
 ## ⚙️ Setup Instructions
 
 1. **Clone or Download the Repo**
+
    ```bash
-   git clone https://github.com/yourusername/JSL05_TASKBOARD_FIGMA.git
+   git clone https://github.com/VanessaDa/VANBAA25089_PTO2502_GroupA_VanessaBaart_JSL05-2025.git
    ```
 
 2. **Open `index.html` in any modern browser**
