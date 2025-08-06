@@ -109,6 +109,14 @@ deleteBtn.addEventListener('click', () => {
   window.addEventListener("mouseup", () => {
     isDown = false;
   });
+
+  function resetFormState() {
+  form.reset();
+  modal.removeAttribute('data-editing-id');
+  document.getElementById('submit-task-btn').textContent = 'Create Task';
+  deleteBtn.style.display = 'none';
+}
+
 }
 
 /**
