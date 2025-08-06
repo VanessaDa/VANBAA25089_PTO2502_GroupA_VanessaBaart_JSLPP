@@ -40,4 +40,15 @@ export function setupSidebarToggle() {
       document.body.classList.remove('sidebar-visible');
     }
   });
-  
+    // Hide showSidebarBtn on mobile
+  function updateSidebarBtnVisibility() {
+    if (window.innerWidth <= 768) {
+      showSidebarBtn.style.display = 'none';
+    } else if (!document.body.classList.contains('sidebar-hidden')) {
+      showSidebarBtn.style.display = 'none';
+    }
+  }
+
+  window.addEventListener('resize', updateSidebarBtnVisibility);
+  updateSidebarBtnVisibility();
+}
