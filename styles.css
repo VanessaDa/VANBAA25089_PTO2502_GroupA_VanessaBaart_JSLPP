@@ -28,61 +28,183 @@ body {
   font-size: 1rem;
 }
 
+/* Default: show light logo, hide dark one */
+.logo-light {
+  display: block;
+}
+.logo-dark {
+  display: none;
+}
+
+/* In dark mode: swap them */
+body.dark .logo-light {
+  display: none;
+}
+body.dark .logo-dark {
+  display: block;
+}
+
 /* ================
-   Sidebar Layout
+   Sidebar Layout (Updated)
 ================ */
-.side-bar {
+.sidebar {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background-color: var(--primary-color);
   border-right: 1px solid #e4ebfa;
   width: var(--sidebar-width);
   height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-#side-logo-div {
-  margin: 33px 113px 54px 34px;
+.logo-section {
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2rem;
 }
 
-#logo {
-  width: 100%;
+.logo {
+  width: 120px;
+  height: auto;
+  
 }
 
-.boards-nav-links-div {
+
+
+.board-section {
+  flex: 1;
+}
+
+.board-heading {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  color: var(--secondary-font-color);
+  text-transform: uppercase;
+  padding-left: 0.5rem;
+}
+
+.board-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.board-item {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* center the text */
+  padding: 12px 16px;
+ border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--secondary-font-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.board-item:hover {
+  background-color: var(--secondary-color);
   color: var(--primary-font-color);
 }
 
-#headline-sidepanel {
-  padding: 0 12px 0 50px;
+.board-item.active {
+  background-color: #635fc7;
+  color: #ffffff;
 }
 
-h4 {
-  color: var(--secondary-font-color);
-  font-size: 0.75rem;
-  letter-spacing: 0.125rem;
+
+.new-board {
+  color: #635fc7;
+  font-weight: 600;
 }
 
-.board-btn {
-  font-family: inherit;
+.bottom-controls {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.theme-toggle {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background-color: #635fc7;
-  color: #fff;
-  border: none;
-  border-radius: 0 100px 100px 0;
-  height: 48px;
-  width: 276px;
-  padding: 28px 12px 28px 50px;
-  font-size: 0.9375rem;
-  font-weight: bold;
-  cursor: pointer;
-  overflow: hidden;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--secondary-color);
+  padding: 0.5rem;
+  border-radius: 6px;
 }
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #635fc7;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: #635fc7;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.hide-sidebar {
+  background: none;
+  border: none;
+  color: var(--secondary-font-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding-left: 0.5rem;
+}
+
+.hide-sidebar img {
+  width: 16px;
+  height: 16px;
+}
+
+
+
+
 
 /* ===============
    Main Layout
@@ -355,13 +477,64 @@ form select {
   color: #a8a4ff;
 }
 
+/* Delete Button (Modal) */
+.delete-task-btn {
+  background-color: #ea5555;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.delete-task-btn:hover {
+  background-color: #d73737;
+}
+/* ========================
+   Show Sidebar Toggle Tab
+======================== */
+.show-sidebar {
+  position: fixed;
+  bottom: 32px;
+  left: 0;
+  width: 48px;
+  height: 48px;
+  background-color: #635fc7; /* Main Purple */
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+
+.show-sidebar img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* makes icon white on dark bg */
+}
+
+#show-sidebar-btn {
+  display: none;
+}
+body.sidebar-hidden .sidebar {
+  display: none;
+}
+
 /******** Tablets ********/
 @media screen and (max-width: 1023px) {
-  .side-bar {
+  .sidebar {
     display: none;
   }
 
-  .side-bar.show-sidebar {
+  .sidebar.show-sidebar {
     display: flex !important;
     position: fixed;
     height: auto;
@@ -517,3 +690,59 @@ form select {
 }
 
   }
+  /* ========================
+   Dark Theme Support
+======================== */
+body.dark {
+  --primary-color: #2b2c37;
+  --secondary-color: #20212c;
+  --primary-font-color: #ffffff;
+  --secondary-font-color: #828fa3;
+  --primary-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .sidebar {
+  background-color: var(--primary-color);
+  border-color: #3e3f4e;
+}
+
+body.dark header,
+body.dark .task-div,
+body.dark dialog#task-modal {
+  background-color: var(--primary-color);
+  color: var(--primary-font-color);
+}
+
+body.dark .board-item.active {
+  background-color: #635fc7;
+  color: white;
+}
+
+body.dark .board-item:hover {
+  background-color: #3e3f4e;
+  color: white;
+}
+
+body.dark .hide-sidebar,
+body.dark .task-title,
+body.dark .columnHeader {
+  color: var(--secondary-font-color);
+}
+
+body.dark .submit-task-btn {
+  background-color: #635fc7;
+  color: white;
+}
+
+body.dark .submit-task-btn:hover {
+  background-color: #a8a4ff;
+}
+
+body.dark .delete-task-btn {
+  background-color: #ea5555;
+  color: white;
+}
+
+body.dark .delete-task-btn:hover {
+  background-color: #d73737;
+}
