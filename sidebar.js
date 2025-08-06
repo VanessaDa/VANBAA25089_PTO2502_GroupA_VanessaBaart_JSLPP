@@ -25,4 +25,19 @@ export function setupSidebarToggle() {
     showSidebarBtn.style.display = 'none';
   });
 
+    // Toggle sidebar on mobile via logo
+  logoMobile.addEventListener('click', () => {
+    document.body.classList.toggle('sidebar-visible');
+  });
+
+  // Close sidebar when clicking outside on mobile
+  document.addEventListener('click', (e) => {
+    if (
+      document.body.classList.contains('sidebar-visible') &&
+      !sidebar.contains(e.target) &&
+      !logoMobile.contains(e.target)
+    ) {
+      document.body.classList.remove('sidebar-visible');
+    }
+  });
   
