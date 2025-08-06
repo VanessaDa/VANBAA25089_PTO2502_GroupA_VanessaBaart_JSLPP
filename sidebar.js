@@ -1,4 +1,3 @@
-// sidebar.js
 
 /**
  * Sets up sidebar toggle functionality for desktop and mobile
@@ -14,5 +13,16 @@ export function setupSidebarToggle() {
   showSidebarBtn.classList.add('show-sidebar');
   showSidebarBtn.innerHTML = '<img src="./assets/icon-show-sidebar.svg" alt="Show Sidebar" />';
   document.body.appendChild(showSidebarBtn);
+
+   // Toggle sidebar visibility on desktop
+  hideBtn.addEventListener('click', () => {
+    document.body.classList.add('sidebar-hidden');
+    showSidebarBtn.style.display = 'flex';
+  });
+
+  showSidebarBtn.addEventListener('click', () => {
+    document.body.classList.remove('sidebar-hidden');
+    showSidebarBtn.style.display = 'none';
+  });
 
   
