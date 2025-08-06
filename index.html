@@ -15,15 +15,23 @@
 
   <body>
     <!-- Sidebar -->
-    <nav class="side-bar" id="side-bar-div">
-      <div id="side-logo-div">
-        <img id="logo" src="./assets/logo-light.svg" alt="logo-light" />
+    <aside class="sidebar" id="side-bar-div">
+      <!-- Logo Section -->
+      <div class="logo-section">
+        <img src="./assets/logo-light.svg" alt="Kanban Logo Light" class="logo logo-light" />
+        <img src="./assets/logo-dark.svg" alt="Kanban Logo Dark" class="logo logo-dark" />
       </div>
-      <div class="boards-nav-links-div" id="boards-nav-links-div">
-        <h4 id="headline-sidepanel">ALL BOARDS (1)</h4>
-        <button class="board-btn">Launch Career</button>
+
+      <!-- Boards List -->
+      <div class="board-section">
+        <p class="board-heading">ALL BOARDS (1)</p>
+        <ul class="board-list">
+          <li class="board-item active">
+            <span>Launch Career</span>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </aside>
 
     <!-- Layout -->
     <div id="layout">
@@ -34,9 +42,9 @@
         </div>
         <div class="header-btn-wrapper">
           <button id="add-task-btn" class="board-btn" aria-label="Add Task">
-  <span class="plus-icon">+</span>
-  <span class="add-task-text">Add Task</span>
-</button>
+            <span class="plus-icon">+</span>
+            <span class="add-task-text">Add Task</span>
+          </button>
         </div>
       </header>
 
@@ -94,11 +102,9 @@
         </select>
 
         <div class="submit-wrapper">
-        <button type="submit" id="submit-task-btn" class="submit-task-btn">Create Task</button>
-      </div>
+          <button type="submit" id="submit-task-btn" class="submit-task-btn">Create Task</button>
+        </div>
       </form>
-
-      
     </dialog>
   </body>
 </html>
