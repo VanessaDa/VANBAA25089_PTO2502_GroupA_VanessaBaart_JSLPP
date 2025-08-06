@@ -12,6 +12,8 @@ import { renderTasks } from './render.js';
 export function setupModal() {
   const modal = document.getElementById('task-modal');
   const closeBtn = document.getElementById('close-modal-btn');
+  const deleteBtn = document.getElementById('delete-task-btn');
+
 
   // Close modal when user clicks "X" button
   closeBtn.addEventListener('click', () => {
@@ -66,6 +68,21 @@ export function setupModal() {
     modal.removeAttribute('data-editing-id');
     modal.close();
   });
+
+  // ===== DELETE FUNCTIONALITY =====
+deleteBtn.addEventListener('click', () => {
+  const taskId = modal.dataset.editingId;
+  if (!taskId) return;
+
+  const confirmed = confirm("Are you sure you want to delete this task?");
+  if (confirmed) {
+    deleteTask(parseInt(taskId));
+    renderTasks(loadTasks());
+    resetFormState();
+    modal.close();
+  }
+});
+
 
   // ===== Modal Dragging Logic =====
 
