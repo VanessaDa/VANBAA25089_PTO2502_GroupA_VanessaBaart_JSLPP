@@ -103,21 +103,20 @@ It also dynamically fetches initial tasks from an external API, supports CRUD op
 
 ## 📂 Project Structure
 
+```
 JSLPP/
-│
-├── assets/ # Logos and icons
-├── index.html # Markup structure
-├── styles.css # Responsive and theme styling
-├── scripts.js # Entry point + app init
-├── api.js # Fetch logic from remote API
-├── render.js # Task rendering
-├── storage.js # localStorage logic
-├── modal.js # Add/Edit/Delete task modal
-├── sidebar.js # Sidebar toggle logic
-├── theme.js # Light/Dark mode toggle
-└── README.md # Project documentation
-
----
+├── assets/           # Logos and icons
+├── index.html        # Markup structure
+├── styles.css        # Responsive and theme styling
+├── scripts.js        # Entry point + app init
+├── api.js            # Fetch logic from remote API
+├── render.js         # Task rendering
+├── storage.js        # localStorage logic
+├── modal.js          # Add/Edit/Delete task modal
+├── sidebar.js        # Sidebar toggle logic
+├── theme.js          # Light/Dark mode toggle
+└── README.md         # Project documentation
+```
 
 ## 🛠️ Tools Used
 
