@@ -1,43 +1,27 @@
-// Import required functions from local modules
 import { renderTasks } from './render.js';
-import { loadTasks } from './storage.js';
-import { setupModal, openModalForEdit, openEmptyModal } from './modal.js';
+import { loadTasks, saveTasks } from './storage.js';
+import { setupModal, openEmptyModal } from './modal.js';
+import { fetchTasksFromAPI } from './api.js';
+import { setupSidebarToggle } from './sidebar.js';
+import { setupThemeToggle } from './theme.js';
 
-/**
- * Initialise the app once the DOM is fully loaded.
- * - Adds event listener to the "Add Task" button
- * - Loads tasks from localStorage and renders them
- * - Sets up modal functionality (submit, drag, close, etc.)
- */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('add-task-btn').addEventListener('click', openEmptyModal);
-  renderTasks(loadTasks());
+
+  let tasks = loadTasks();
+
+  if (!tasks || tasks.length === 0) {
+    try {
+      showLoading(); // ⛔️ You need to implement this in render.js
+      tasks = await fetchTasksFromAPI();
+      saveTasks(tasks);
+    } catch (err) {
+      showError(err.message); // ⛔️ You also need to implement this in render.js
+    }
+  }
+
+  renderTasks(tasks);
   setupModal();
+  setupSidebarToggle();
+  setupThemeToggle();
 });
-
-/**
- * Creates a single task card element to be displayed in the UI.
- * Each card:
- * - Shows the task title
- * - Stores task ID in a dataset attribute
- * - Opens modal for editing when clicked
- *
- * @param {Object} task - The task object with properties: id, title, description, status
- * @returns {HTMLElement} - The DOM element representing the task card
- */
-function createTask(task) {
-  const div = document.createElement('div');
-  div.classList.add('task-div');
-  div.dataset.id = task.id;
-  div.textContent = task.title;
-
-  // Attach click event to open modal pre-filled with this task's data
-  div.addEventListener('click', () => {
-    openModalForEdit(task);
-  });
-
-  return div;
-}
-
-// Export the task creation utility for use in render.js
-export { createTask };
