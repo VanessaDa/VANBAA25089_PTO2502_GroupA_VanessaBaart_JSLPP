@@ -14,11 +14,18 @@ export function setupSidebarToggle() {
   showSidebarBtn.innerHTML = '<img src="./assets/icon-show-sidebar.svg" alt="Show Sidebar" />';
   document.body.appendChild(showSidebarBtn);
 
-   // Toggle sidebar visibility on desktop
+ // Toggle sidebar visibility on desktop vs mobile
   hideBtn.addEventListener('click', () => {
+  if (window.innerWidth <= 768) {
+    // Mobile: close the floating menu
+    document.body.classList.remove('sidebar-visible');
+  } else {
+    // Desktop: hide the left sidebar and show the tab
     document.body.classList.add('sidebar-hidden');
     showSidebarBtn.style.display = 'flex';
-  });
+  }
+});
+
 
   showSidebarBtn.addEventListener('click', () => {
     document.body.classList.remove('sidebar-hidden');
