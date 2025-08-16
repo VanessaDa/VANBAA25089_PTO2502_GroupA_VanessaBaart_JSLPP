@@ -56,11 +56,17 @@ export function renderTasks(tasks) {
  * Displays a loading message in each column container
  */
 export function showLoading() {
-  const containers = document.querySelectorAll('.tasks-container');
-  containers.forEach(container => {
-    container.innerHTML = '<p style="text-align:center; color: #828fa3;">Loading tasks...</p>';
+  const spinnerHTML = `
+    <div class="loading-spinner">
+      <div class="spinner-circle"></div>
+      <p>Loading tasks...</p>
+    </div>
+  `;
+  document.querySelectorAll('.tasks-container').forEach(container => {
+    container.innerHTML = spinnerHTML;
   });
 }
+
 
 /**
  * Displays an error message in each column container
@@ -71,4 +77,32 @@ export function showError(message) {
   containers.forEach(container => {
     container.innerHTML = `<p style="text-align:center; color: red;">⚠️ ${message}</p>`;
   });
+}
+// A non-destructive loading overlay (doesn't wipe task lists)
+export function showBoardLoading() {
+  if (document.querySelector('.board-loader')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'board-loader';
+  overlay.innerHTML = `
+    <div class="board-loader__content">
+      <div class="board-loader__spinner"></div>
+      <p>Loading tasks…</p>
+    </div>
+  `;
+  document.getElementById('layout').appendChild(overlay);
+}
+
+export function hideBoardLoading() {
+  document.querySelector('.board-loader')?.remove();
+}
+
+// A non-destructive error banner for when fetch fails but we already have tasks
+export function showErrorBanner(message = 'Failed to refresh tasks') {
+  const banner = document.createElement('div');
+  banner.className = 'error-banner';
+  banner.textContent = `⚠️ ${message}`;
+  document.body.appendChild(banner);
+  requestAnimationFrame(() => banner.classList.add('visible'));
+  setTimeout(() => banner.classList.remove('visible'), 2500);
+  setTimeout(() => banner.remove(), 3000);
 }
