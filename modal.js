@@ -139,4 +139,3 @@ export function openModalForEdit(task) {
   deleteBtn.style.display = 'inline-block';
   modal.showModal();
 }
-
