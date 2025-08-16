@@ -1,103 +1,134 @@
-# 🧩 JSL Portfolio Piece: Kanban App Deployment & Features Implementation
+# **Kanban Board: Portfolio Piece**
 
-## 📝 Overview
+## 💡 Project Overview
 
-This project showcases a fully responsive **Kanban task board app** built with **vanilla HTML, CSS, and JavaScript**. It aligns with the provided Figma design and satisfies all JSLPP project user stories. The application is modular, well-documented, and persistently stores tasks using `localStorage`.
+This project is a fully functional, responsive **Kanban board** web application designed to help users visualize and manage their workflow. It features a responsive layout that adapts to various screen sizes, organizing tasks into **TODO**, **DOING**, and **DONE** columns.
 
-It also dynamically fetches initial tasks from an external API, supports CRUD operations on tasks via a modal, includes responsive sidebar behavior, and features a theme toggle for light/dark mode.
+Building on a static visual base, this version introduces a robust **JavaScript-driven** system for dynamic task display and interactive management:
 
----
+- Fetches initial tasks from an **API** and persists updates in **Local Storage**
+- Modal-based **Create / Read / Update / Delete** (CRUD) for tasks
+- **Mobile-friendly menu** from the app logo with theme toggle
+- **Dark/Light** theme with persistence
 
-## 🌐 Deployment & Submission Links
-
-- 🔗 **Deployed App (Netlify)**:
-- 🎥 **Recorded Presentation**:
-- 🗃️ **GitHub Repository**: https://github.com/VanessaDa/VANBAA25089_PTO2502_GroupA_VanessaBaart_JSLPP.git
-
----
-
-## ✅ Key Objectives Covered
-
-### 🚀 Deployment & Hosting
-
-- Prepared and structured the project for Netlify deployment.
-- Deployed with a custom subdomain.
-- Live version tested — all tasks persist and reflect across sessions.
-
-### 🌐 Initial Data Fetching & Loading State
-
-- Fetches initial tasks from: `https://jsl-kanban-api.vercel.app/`
-- Shows a "Loading tasks..." message while fetching.
-- Displays an error message if fetch fails.
-- Fetched tasks are stored in `localStorage`.
-
-### 💾 Data Persistence
-
-- Tasks persist in `localStorage` after fetch or user creation.
-- Upon reload, tasks display in the correct columns ("To Do", "Doing", "Done").
-
-### 📝 Task Editing & Deletion
-
-- Modal supports:
-  - Title, description, and status editing
-  - Duplicate title validation
-- Delete button shows a confirmation prompt.
-- Deleted tasks are removed from both the UI and `localStorage`.
-
-### 📚 Sidebar Interaction
-
-- Sidebar includes:
-  - Board title
-  - Logo (light/dark)
-  - Theme toggle
-  - Hide button (desktop)
-- Toggleable via “Hide” or “Show Sidebar” buttons.
-- Mobile menu opens from the logo and includes all sidebar content.
-
-### 📱 Mobile Sidebar (Menu)
-
-- Fully functional mobile sidebar accessible from the header.
-- Theme toggle is present.
-- Sidebar can be closed for task viewing.
-
-### 🎨 Theme Toggle (Dark/Light Mode)
-
-- Toggle switch available on desktop and mobile.
-- Dark mode properly applies styles across the entire UI.
-- Mode preference is saved and persists on reload.
-
-### 💡 Stretch Goal (Priority)
-
-> _This feature is not implemented in the current version._
+This project showcases **modular JS architecture**, **clean DOM manipulation**, and **solid UX** for a professional, scalable implementation.
 
 ---
 
-## 🧩 Feature Summary
+## 🚀 Live Demo & Presentation
 
-| Feature                     | Status |
-| --------------------------- | ------ |
-| Add/Edit/Delete Tasks       | ✅     |
-| Save to Local Storage       | ✅     |
-| Fetch from API              | ✅     |
-| Loading/Error States        | ✅     |
-| Responsive Sidebar (Mobile) | ✅     |
-| Theme Toggle (Dark/Light)   | ✅     |
-| Modular Code Structure      | ✅     |
-| JSDoc Documentation         | ✅     |
+- **Live Demo (Netlify)**: _add your link_
+- **Presentation**: _add your link_
+- **GitHub Repository**: https://github.com/VanessaDa/VANBAA25089_PTO2502_GroupA_VanessaBaart_JSLPP.git
 
 ---
 
-## 🧠 Code Quality & Maintainability
+## 🌟 Key Features
 
-- Separated code into logical modules:
-  - `api.js`: Data fetching
-  - `modal.js`: Modal behavior
-  - `render.js`: DOM rendering
-  - `storage.js`: CRUD operations
-  - `sidebar.js`: Sidebar toggles
-  - `theme.js`: Theme switch handling
-- All major functions are documented with **JSDoc**.
-- Uses clean and descriptive naming conventions.
+### Core Functionality
+
+- **API-First Initial Data**: On first load, tasks are fetched from `https://jsl-kanban-api.vercel.app/` and then saved to Local Storage. If the API is unavailable on first run, a starter set is used as a fallback so the app remains usable.
+- **Persistent Data**: All user changes (add/edit/delete) are saved to **Local Storage**, so your board is restored on reload.
+- **Dynamic Task Rendering**: Tasks are generated from data (not hard-coded HTML) and automatically displayed in the correct columns with live counters.
+- **Interactive Modal-Based Management**:
+  - **Add New Task**: Create tasks with title, description, and status.
+  - **Edit Task**: Click any task to open it pre-filled for editing.
+  - **Delete Task**: Delete within the edit modal (with confirmation).
+  - **Backdrop**: The UI dims behind the modal to focus attention.
+- **Loading & Error States**:
+  - **Visible Loading** while fetching (overlay + column loaders for empty board).
+  - **Clear Error** message if fetching fails (banner when data already exists, inline error when empty).
+- **(Optional) Task Priority**: A priority indicator dot can be added to cards (planned/stretch goal).
+
+### User Interface & Navigation
+
+- **Fully Responsive**: The layout adapts from desktop to mobile; columns reflow gracefully.
+- **Light & Dark Mode**: Theme toggle in the sidebar/mobile menu, persisted via Local Storage.
+- **Desktop Sidebar**: Persistent navigation with board title and theme toggle.
+- **Mobile Menu from App Logo**: Tap the header logo to open/close the mobile menu with the **same controls** as the desktop sidebar.
+- **Custom Form Validation**: Required fields guide the user with clear feedback.
+- **Clear Close Button**: Prominent red “X” closes modals.
+
+---
+
+## 🛠️ Technologies Used
+
+- **HTML5** – Semantic structure & accessibility
+- **CSS3** – Responsive layout (Flexbox/Grid), CSS Variables for theming
+- **JavaScript (ES6+)** – Modular architecture, DOM manipulation, events
+  - **Fetch API** – Initial data from remote source
+  - **Web Storage (Local Storage)** – Persistent tasks & theme
+  - **JSDoc** – Major functions documented for clarity
+- **Google Fonts** – “Plus Jakarta Sans”
+- **Netlify** – Hosting & deployment
+- **Figma** – UI reference
+
+---
+
+## 📋 Interaction Instructions
+
+### Adding a New Task
+
+1. Click **“+ Add Task”** in the header.
+2. Enter **Title**, optional **Description**, and select **Status**.
+3. Click **Create Task** to add it to the board.
+
+### Editing an Existing Task
+
+1. Click any **task card**.
+2. Update fields as needed.
+3. Click **Save Changes**.
+
+### Deleting a Task
+
+1. Open a task (click the card).
+2. Click **Delete Task** and confirm.
+
+### Closing Modals
+
+- Click the **red “X”** in the top-right corner.
+
+---
+
+## 💻 Setup Instructions
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/VanessaDa/VANBAA25089_PTO2502_GroupA_VanessaBaart_JSLPP.git
+   cd VANBAA25089_PTO2502_GroupA_VanessaBaart_JSLPP
+   ```
+
+2. **Open the project**
+
+   - Open `index.html` directly in your browser, **or**
+   - Use a local server (recommended for smooth API fetch):
+     ```bash
+     npx live-server
+     ```
+
+3. **Run the app**
+   - Visit the Netlify link (if deployed), or your local server URL (e.g. `http://127.0.0.1:5500`).
+
+---
+
+## 🖥️ Working Usage Examples
+
+### Desktop View
+
+- Open `index.html` in a desktop browser.
+- **Sidebar** and **Kanban columns** are fully visible.
+- Click **“+ Add Task”** to create a task.
+- Click any card to **edit** or **delete**.
+- Use the **theme toggle** in the sidebar to switch themes.
+- Resize the window to see responsive behavior.
+
+### Mobile View
+
+- Open on a mobile device or use devtools mobile emulation.
+- The desktop sidebar hides; tap the **app logo** to open the **mobile menu** (with theme toggle).
+- Kanban columns stack vertically for easy scrolling.
+- Modals are **touch-friendly** and responsive.
 
 ---
 
@@ -110,30 +141,17 @@ JSLPP/
 ├── styles.css        # Responsive and theme styling
 ├── scripts.js        # Entry point + app init
 ├── api.js            # Fetch logic from remote API
-├── render.js         # Task rendering
-├── storage.js        # localStorage logic
+├── render.js         # Task rendering & UI helpers
+├── storage.js        # Local Storage helpers
 ├── modal.js          # Add/Edit/Delete task modal
-├── sidebar.js        # Sidebar toggle logic
+├── sidebar.js        # Sidebar/mobile menu toggles
 ├── theme.js          # Light/Dark mode toggle
 └── README.md         # Project documentation
 ```
 
-## 🛠️ Tools Used
-
-- HTML5 / CSS3 / JavaScript (ES6+)
-- Fetch API & `localStorage`
-- Netlify for deployment
-- Google Fonts & HeroIcons
-- Figma (UI reference)
-
 ---
 
-## 🎓 Submission Checklist
+## ✅ Notes for Assessors
 
-- ✅ Final version pushed to GitHub
-- ✅ Correct repository naming convention
-- ✅ Deployment link added to README
-- ✅ Recording link added to README
-- ✅ Submitted via LMS under Projects > JSLPP Portfolio Piece
-
----
+- **Initial Data**: API-first fetch with Local Storage persistence. If the first fetch fails and there’s no local data, a one-time **seed fallback** loads so the board remains usable.
+- **Loading & Errors**: Always shows a **loading state** during fetch; shows **error banner** when fetch fails but local data exists, and **inline error** if the board is empty.
