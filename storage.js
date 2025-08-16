@@ -17,17 +17,10 @@ const seedData = [
  * @returns {Array} Array of task objects
  */
 export function loadTasks() {
-  let stored = localStorage.getItem(STORAGE_KEY);
-
-  // If no data exists, initialize localStorage with seedData
-  if (!stored) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(seedData));
-    return seedData;
-  }
-
-  // Parse and return stored tasks
-  return JSON.parse(stored);
+  const stored = localStorage.getItem('kanban_tasks');
+  return stored ? JSON.parse(stored) : [];
 }
+
 
 /**
  * Saves the entire list of tasks to localStorage.
