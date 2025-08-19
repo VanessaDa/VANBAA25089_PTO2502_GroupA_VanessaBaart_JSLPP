@@ -17,7 +17,7 @@ This project showcases **modular JS architecture**, **clean DOM manipulation**, 
 
 ## 🚀 Live Demo & Presentation
 
-- **Live Demo (Netlify)**: _add your link_
+- **Live Demo (Netlify)**: kanbanpp.netlify.app
 - **Presentation**: _add your link_
 - **GitHub Repository**: https://github.com/VanessaDa/VANBAA25089_PTO2502_GroupA_VanessaBaart_JSLPP.git
 
